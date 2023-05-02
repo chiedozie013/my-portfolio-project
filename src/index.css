@@ -38,8 +38,8 @@
   --color-primary-400: #2a4365;
   --color-primary-500: #14532d;
   --color-primary-600: #512da8;
-  --color-white: #fff;
-  --color-black: #000;
+  --color-white: #fafaf9;
+  --color-black: #292524;
   --color-error-200: hsl(4, 90%, 94%);
   --color-error: #f44336;
   --color-success: #8bc34a;
