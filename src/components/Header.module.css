@@ -27,7 +27,7 @@
   display: none;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
   .headerIcon {
     font-size: 0.8em;
     gap: 1rem;
