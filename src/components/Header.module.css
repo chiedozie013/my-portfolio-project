@@ -26,3 +26,15 @@
 .toggleButton {
   display: none;
 }
+
+@media screen and (max-width: 400px) {
+  .headerIcon {
+    font-size: 0.8em;
+    gap: 1rem;
+  }
+  .headerText {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+}

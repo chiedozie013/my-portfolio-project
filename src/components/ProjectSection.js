@@ -6,35 +6,35 @@ import classes from "./ProjectSection.module.css";
 
 const projects = [
   {
-    title: "React  Space",
+    title: "React Space",
     description:
       "Handy tool belt to create amazing AR components in a React app, with redux integration via middleware️",
     image: photo1,
   },
   {
-    title: "Django  Framework Space",
+    title: "Little Lemon",
     description:
-      "Powerful built-in features, and active community makes it a popular choice for developers around the world.",
+      "A website/web application for a restaurant that allows customers to make reservations.",
     image: photo2,
   },
   {
-    title: "Product Design Space",
+    title: "Event Planner",
     description:
-      "Product design is an essential component of the product development process, as it directly impacts the success of a product in the market.",
+      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps.",
     image: photo3,
   },
 ];
 
 export default function ProjectSection() {
   return (
-    <section className={classes.projectSection}>
-      <div className={`fluidContainer ${classes.specialContainer}`}>
+    <section className={classes.projectSection} id="projects">
+      <div className={`fluidContainer ${classes.projectContainer}`}>
         <div className="sectionTitle">
           <h2>Featured Projects</h2>
         </div>
         <div className={classes.projectCatlog}>
           {projects.map((project) => (
-            <Card
+            <ProjectCard
               key={project.title}
               title={project.title}
               description={project.description}

@@ -1,8 +1,12 @@
 .landingSection {
-  padding: 8rem 0;
+  padding: auto;
   background-color: var(--color-primary-400);
   height: 100vh;
   color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .landingContainer {
@@ -30,22 +34,34 @@
   font-size: var(--font-size-h4);
 }
 
-@media screen and (max-width: 1024px) {
-  .landingSection {
-    padding-top: 13rem;
-  }
-
+@media screen and (max-width: 768px) {
   .imageContainer {
     width: 50%;
   }
   .greeting {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+  .bio1 {
+    font-size: 1.7rem;
+  }
+  .bio2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .imageContainer {
+    width: 50%;
+  }
+  .greeting {
+    font-size: 1.2rem;
     margin-top: 2rem;
   }
   .bio1 {
     font-size: 1rem;
   }
   .bio2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 }
