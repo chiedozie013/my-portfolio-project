@@ -1,12 +1,12 @@
 .projectSection {
-  /* padding: 6rem 0; */
+  padding: 6rem 0;
   background-color: var(--color-primary-500);
   height: 100vh;
   color: var(--color-white);
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 .projectContainer {
@@ -39,5 +39,12 @@
 @media screen and (max-width: 450px) {
   .projectSection {
     height: 187vh;
+    padding-top: 6rem;
+  }
+}
+@media screen and (max-height: 700px) {
+  .projectSection {
+    padding-top: 6rem;
+    height: 240vh;
   }
 }
