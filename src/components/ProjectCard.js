@@ -16,7 +16,11 @@ export default function ProjectCard({ title, description, image }) {
       <div className={classes.cardText}>
         <h2>{title}</h2>
         <p>{description}</p>
-        <a href="/">
+        <a
+          href="https://www.github.com/chiedozie013"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           See More <FontAwesomeIcon icon={faArrowRight} size="1x" />
         </a>
       </div>
