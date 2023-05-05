@@ -1,3 +1,4 @@
+// import { useHistory } from "react-router";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useFormik } from "formik";
@@ -6,6 +7,8 @@ import * as Yup from "yup";
 import { useAlertContext } from "../context/alertContext";
 import useSubmit from "../hooks/useSubmit";
 import classes from "./ContactSection.module.css";
+
+import axios from "axios";
 
 import {
   Button,
@@ -21,11 +24,43 @@ export default function ContactSection() {
   const { isLoading, response, submit } = useSubmit();
   const { onOpen } = useAlertContext();
 
+  // const { contactinfos, setContactInfos } = useState([]);
+
+  // const getContactInfos = async () => {
+  //   const response = await axios.get("http://localhost:8000/api");
+  //   console.log(response.data);
+  // };
+  // useEffect(() => {
+  //   getContactInfos();
+  // }, []);
+
+  // const [firstName, setFirstName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [enquiry, setEnquiry] = useState("");
+  // const [comment, setComment] = useState("");
+
+  const AddContactInfo = async () => {
+    let formField = new FormData();
+
+    formField.append("firstName", formik.values.firstName);
+    formField.append("email", formik.values.email);
+    formField.append("enquiry", formik.values.enquiry);
+    formField.append("comment", formik.values.comment);
+
+    await axios({
+      method: "post",
+      url: "http://localhost:8000/api/",
+      data: formField,
+    }).then((response) => {
+      console.log(response.data);
+    });
+  };
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
       email: "",
-      type: "",
+      enquiry: "",
       comment: "",
     },
     onSubmit: async (values) => {
@@ -40,7 +75,7 @@ export default function ContactSection() {
       email: Yup.string()
         .email("Invalid email format")
         .required("Your Email is required"),
-      type: Yup.string().required("Required"),
+      enquiry: Yup.string().required("Required"),
       comment: Yup.string().required("Required").min(25),
     }),
   });
@@ -99,18 +134,18 @@ export default function ContactSection() {
               ) : null}
             </FormControl>
             <FormControl
-              isInvalid={!!formik.touched.type && !!formik.errors.type}
+              isInvalid={!!formik.touched.enquiry && !!formik.errors.enquiry}
             >
               <FormLabel
-                htmlFor="type"
+                htmlFor="enquiry"
                 fontWeight={600}
                 fontSize="var(--font-lead-text)"
               >
                 Type of enquiry
               </FormLabel>
               <Select
-                id="type"
-                name="type"
+                id="enquiry"
+                name="enquiry"
                 onChange={formik.handleChange}
                 value={formik.values.type}
                 onBlur={formik.handleBlur}
@@ -151,7 +186,12 @@ export default function ContactSection() {
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               ) : null}
             </FormControl>
-            <Button type="submit" colorScheme="purple" width="full">
+            <Button
+              type="submit"
+              colorScheme="purple"
+              width="full"
+              onClick={AddContactInfo}
+            >
               Submit
               {isLoading ? (
                 <FontAwesomeIcon
